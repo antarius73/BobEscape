@@ -37,8 +37,7 @@ public class Managers : MonoBehaviour
 	// coroutine
 	// une methode qui n'a pas besoin d'etre executer durant la meme frame
 	private IEnumerator StartupManagers ()
-	{
-		Debug.Log ("aspect :"+Camera.main.aspect);
+	{	
 
 		foreach (var manager in this._startSequence) {
 			manager.Startup ();

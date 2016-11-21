@@ -1,45 +1,45 @@
 fileFormatVersion: 2
-guid: 673b59bff994f4b77ac25dc8d7aef5f4
-timeCreated: 1479467407
+guid: 8787f8d57daba8146a8347e23ec2e596
+timeCreated: 1479737505
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: mage walking poses sheet_0
-    21300002: mage walking poses sheet_1
-    21300004: mage walking poses sheet_2
-    21300006: mage walking poses sheet_3
-    21300008: mage walking poses sheet_4
-    21300010: mage walking poses sheet_5
-    21300012: mage walking poses sheet_6
-    21300014: mage walking poses sheet_7
-    21300016: mage walking poses sheet_8
-    21300018: mage walking poses sheet_9
-    21300020: mage walking poses sheet_10
-    21300022: mage walking poses sheet_11
-    21300024: mage walking poses sheet_12
-    21300026: mage walking poses sheet_13
-    21300028: mage walking poses sheet_14
-    21300030: mage walking poses sheet_15
-    21300032: mage walking poses sheet_16
-    21300034: mage walking poses sheet_17
-    21300036: mage walking poses sheet_18
-    21300038: mage walking poses sheet_19
-    21300040: mage walking poses sheet_20
-    21300042: mage walking poses sheet_21
-    21300044: mage walking poses sheet_22
-    21300046: mage walking poses sheet_23
-    21300048: mage walking poses sheet_24
-    21300050: mage walking poses sheet_25
-    21300052: mage walking poses sheet_26
-    21300054: mage walking poses sheet_27
-    21300056: mage walking poses sheet_28
-    21300058: mage walking poses sheet_29
-    21300060: mage walking poses sheet_30
-    21300062: mage walking poses sheet_31
-    21300064: mage walking poses sheet_32
-    21300066: mage walking poses sheet_33
-    21300068: mage walking poses sheet_34
-    21300070: mage walking poses sheet_35
+    21300000: mage walking_0
+    21300002: mage walking_1
+    21300004: mage walking_2
+    21300006: mage walking_3
+    21300008: mage walking_4
+    21300010: mage walking_5
+    21300012: mage walking_6
+    21300014: mage walking_7
+    21300016: mage walking_8
+    21300018: mage walking_9
+    21300020: mage walking_10
+    21300022: mage walking_11
+    21300024: mage walking_12
+    21300026: mage walking_13
+    21300028: mage walking_14
+    21300030: mage walking_15
+    21300032: mage walking_16
+    21300034: mage walking_17
+    21300036: mage walking_18
+    21300038: mage walking_19
+    21300040: mage walking_20
+    21300042: mage walking_21
+    21300044: mage walking_22
+    21300046: mage walking_23
+    21300048: mage walking_24
+    21300050: mage walking_25
+    21300052: mage walking_26
+    21300054: mage walking_27
+    21300056: mage walking_28
+    21300058: mage walking_29
+    21300060: mage walking_30
+    21300062: mage walking_31
+    21300064: mage walking_32
+    21300066: mage walking_33
+    21300068: mage walking_34
+    21300070: mage walking_35
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -65,7 +65,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -82,13 +82,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 64
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mage walking poses sheet_0
+      name: mage walking_0
       rect:
         serializedVersion: 2
         x: 0
@@ -99,8 +100,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_1
+      name: mage walking_1
       rect:
         serializedVersion: 2
         x: 64
@@ -111,8 +113,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_2
+      name: mage walking_2
       rect:
         serializedVersion: 2
         x: 128
@@ -123,8 +126,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_3
+      name: mage walking_3
       rect:
         serializedVersion: 2
         x: 192
@@ -135,8 +139,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_4
+      name: mage walking_4
       rect:
         serializedVersion: 2
         x: 256
@@ -147,8 +152,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_5
+      name: mage walking_5
       rect:
         serializedVersion: 2
         x: 320
@@ -159,8 +165,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_6
+      name: mage walking_6
       rect:
         serializedVersion: 2
         x: 384
@@ -171,8 +178,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_7
+      name: mage walking_7
       rect:
         serializedVersion: 2
         x: 448
@@ -183,8 +191,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_8
+      name: mage walking_8
       rect:
         serializedVersion: 2
         x: 512
@@ -195,8 +204,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_9
+      name: mage walking_9
       rect:
         serializedVersion: 2
         x: 0
@@ -207,8 +217,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_10
+      name: mage walking_10
       rect:
         serializedVersion: 2
         x: 64
@@ -219,8 +230,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_11
+      name: mage walking_11
       rect:
         serializedVersion: 2
         x: 128
@@ -231,8 +243,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_12
+      name: mage walking_12
       rect:
         serializedVersion: 2
         x: 192
@@ -243,8 +256,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_13
+      name: mage walking_13
       rect:
         serializedVersion: 2
         x: 256
@@ -255,8 +269,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_14
+      name: mage walking_14
       rect:
         serializedVersion: 2
         x: 320
@@ -267,8 +282,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_15
+      name: mage walking_15
       rect:
         serializedVersion: 2
         x: 384
@@ -279,8 +295,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_16
+      name: mage walking_16
       rect:
         serializedVersion: 2
         x: 448
@@ -291,8 +308,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_17
+      name: mage walking_17
       rect:
         serializedVersion: 2
         x: 512
@@ -303,8 +321,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_18
+      name: mage walking_18
       rect:
         serializedVersion: 2
         x: 0
@@ -315,8 +334,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_19
+      name: mage walking_19
       rect:
         serializedVersion: 2
         x: 64
@@ -327,8 +347,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_20
+      name: mage walking_20
       rect:
         serializedVersion: 2
         x: 128
@@ -339,8 +360,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_21
+      name: mage walking_21
       rect:
         serializedVersion: 2
         x: 192
@@ -351,8 +373,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_22
+      name: mage walking_22
       rect:
         serializedVersion: 2
         x: 256
@@ -363,8 +386,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_23
+      name: mage walking_23
       rect:
         serializedVersion: 2
         x: 320
@@ -375,8 +399,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_24
+      name: mage walking_24
       rect:
         serializedVersion: 2
         x: 384
@@ -387,8 +412,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_25
+      name: mage walking_25
       rect:
         serializedVersion: 2
         x: 448
@@ -399,8 +425,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_26
+      name: mage walking_26
       rect:
         serializedVersion: 2
         x: 512
@@ -411,8 +438,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_27
+      name: mage walking_27
       rect:
         serializedVersion: 2
         x: 0
@@ -423,8 +451,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_28
+      name: mage walking_28
       rect:
         serializedVersion: 2
         x: 64
@@ -435,8 +464,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_29
+      name: mage walking_29
       rect:
         serializedVersion: 2
         x: 128
@@ -447,8 +477,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_30
+      name: mage walking_30
       rect:
         serializedVersion: 2
         x: 192
@@ -459,8 +490,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_31
+      name: mage walking_31
       rect:
         serializedVersion: 2
         x: 256
@@ -471,8 +503,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_32
+      name: mage walking_32
       rect:
         serializedVersion: 2
         x: 320
@@ -483,8 +516,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_33
+      name: mage walking_33
       rect:
         serializedVersion: 2
         x: 384
@@ -495,8 +529,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_34
+      name: mage walking_34
       rect:
         serializedVersion: 2
         x: 448
@@ -507,8 +542,9 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: mage walking poses sheet_35
+      name: mage walking_35
       rect:
         serializedVersion: 2
         x: 512
@@ -519,6 +555,7 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
