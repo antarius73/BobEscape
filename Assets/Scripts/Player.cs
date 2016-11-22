@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MovingObject
-{	
+{
 	private Animator _animator;
 	 
 	// Use this for initialization
@@ -29,13 +29,13 @@ public class Player : MovingObject
 		bool IsWalking = (Mathf.Abs (horizontal) + Mathf.Abs (vertical)) == 1;
 
 
-		if (IsWalking && Input.anyKeyDown) {			
+		if (IsWalking && Input.anyKeyDown && !this.isMoving) {
 			RaycastHit2D hit;
-			this._animator.SetBool ("IsWalking", IsWalking);
 			this._animator.SetFloat ("X", horizontal);
 			this._animator.SetFloat ("Y", vertical);
 			this.Move (horizontal, vertical, out hit);	
-		// detecter la fin de mv !
 		}
+		//Debug.Log ("this.isMoving : "+this.isMoving);
+		this._animator.SetBool ("IsWalking", this.isMoving);
 	}
 }

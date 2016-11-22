@@ -2,53 +2,63 @@
 using System.Collections;
 using System.Collections.Generic;
 
-// ces objet seront requis à la compilation
+// This component or require at compilation
 [RequireComponent (typeof(PlayerManager))]
 [RequireComponent (typeof(TurnManager))]
+[RequireComponent (typeof(MissionManager))]
 
+/// <summary>
+/// Manage and centralise all others manager through the game
+/// </summary>
 public class Managers : MonoBehaviour
 {
-
-	// list des managers gerer par la classe
 	public static PlayerManager Player{ get; private set; }
+
 	public static TurnManager Turn{ get; private set; }
+
+	public static MissionManager Mission{ get; private set; }
 
 	private IList<IGameManager> _startSequence;
 
-	// methode appelée quand la classe est loadée
+	/// <summary>
+	/// Call when the class is loaded.
+	/// </summary>
 	void Awake ()
 	{
-		// cet objet doit survire quelque soit la scene 
+		//this object must survive through the all game, even when a new level is loaded.
 		MonoBehaviour.DontDestroyOnLoad (this.gameObject);
 
-		// recuperation du composent établi visuelement pour le lié a la variable
+		// Get the component added in the unity IDE
 		Managers.Player = this.GetComponent<PlayerManager> ();
 		Managers.Turn = this.GetComponent<TurnManager> ();
+		Managers.Mission = this.GetComponent<MissionManager> ();
 
 		this._startSequence = new List<IGameManager> ();
 		this._startSequence.Add (Managers.Player);
 		this._startSequence.Add (Managers.Turn);
+		this._startSequence.Add (Managers.Mission);
 
-		// appeler une coroutine
+		// call a subroutine
 		this.StartCoroutine (this.StartupManagers ());
 	}
 
-
-	// coroutine
-	// une methode qui n'a pas besoin d'etre executer durant la meme frame
+	/// <summary>
+	/// a coroutine don't need to be executed through the same frame. it can wait subsequent frame to continue execution.
+	/// </summary>
+	/// <returns>a coroutine return always a IEnumerator</returns>
 	private IEnumerator StartupManagers ()
 	{	
-
 		foreach (var manager in this._startSequence) {
 			manager.Startup ();
 		}
 
-		// point de pose de la coroutine , elle reprendra de la a la prochaine frame
+		// Yield mark a point where the coroutine can pause between two frames
 		yield return null;
 
 		int numModules = this._startSequence.Count;
 		int numModulesReady = 0;
 
+		// Loading of all managers is asynchrone, so we must wait for all to be done
 		while (numModulesReady < numModules) {
 			int lastModuleReady = numModulesReady;
 			numModulesReady = 0;

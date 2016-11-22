@@ -1,26 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TurnManager : MonoBehaviour, IGameManager {
-
+/// <summary>
+/// Handle turn mechanism between the player, the enemy and the game world.
+/// </summary>
+public class TurnManager : MonoBehaviour, IGameManager
+{
 
 	private bool _PlayerTurn;
+
+	/// <summary>
+	/// indicate if it is the player turn.
+	/// </summary>
+	/// <value><c>true</c> if player turn; otherwise, <c>false</c>.</value>
 	public bool PlayerTurn {
 		get {
 			return this._PlayerTurn;
 		}
-		set{ 
+		set { 
 			this._PlayerTurn = value;
-		}
-	}
-
-	private bool _PlayerMove;
-	public bool PlayerMove {
-		get {
-			return this._PlayerMove;
-		}
-		set{ 
-			this._PlayerMove = value;
 		}
 	}
 
@@ -29,10 +27,11 @@ public class TurnManager : MonoBehaviour, IGameManager {
 		private set;
 	}
 
-	public void Startup(){
+	public void Startup ()
+	{
 
 		this.PlayerTurn = true;
-		this.PlayerMove = false;
+
 
 		this.Status = ManagerStatus.Started;
 	}
