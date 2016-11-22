@@ -3372,8 +3372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0b8b493b8f47945abe9a1d0ffbf554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movetime: 0.1
-  blockingLayer:
+  BlockingLayer:
     serializedVersion: 2
     m_Bits: 1024
 --- !u!1001 &1425295645
@@ -4576,6 +4575,7 @@ GameObject:
   - 114: {fileID: 1901201379}
   - 114: {fileID: 1901201378}
   - 114: {fileID: 1901201377}
+  - 114: {fileID: 1901201381}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -4629,6 +4629,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &1901201381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1901201376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4cef710f9cd18a4b87ea7cbb0adc58f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1932051978 stripped
 Transform:
   m_PrefabParentObject: {fileID: 407552, guid: 912c13fab69c3456fb8c8ac638dea4cc, type: 2}
