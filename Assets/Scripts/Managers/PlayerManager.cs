@@ -7,6 +7,12 @@ using System.Collections;
 /// </summary>
 public class PlayerManager : MonoBehaviour, IGameManager
 {
+	private int _movementTileSpeed;
+	public int MovementTileSpeed {
+		get {
+			return this._movementTileSpeed;
+		}
+	}
 
 	public ManagerStatus Status {
 		get;
@@ -15,6 +21,7 @@ public class PlayerManager : MonoBehaviour, IGameManager
 
 	public void Startup ()
 	{
+		this._movementTileSpeed = 1;
 		this.Status = ManagerStatus.Started;
 	}
 }

@@ -29,10 +29,23 @@ public class TurnManager : MonoBehaviour, IGameManager
 
 	public void Startup ()
 	{
-
 		this.PlayerTurn = true;
-
-
 		this.Status = ManagerStatus.Started;
+
+	}
+
+	void Awake(){
+
+		Messenger.AddListener (GameEvent.MANAGERS_STARTED, OnManagersStarted);
+
+
+	}
+
+	private void OnManagersStarted(){
+		this.StartTurn ();
+	}
+
+	private void StartTurn(){
+		Messenger.Broadcast (GameEvent.PLAYER_TURN_START);
 	}
 }

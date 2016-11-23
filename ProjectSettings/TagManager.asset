@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Generator
+  - ReachableTile
   - Potion
+  - Generator
   layers:
   - Default
   - TransparentFX
@@ -52,4 +53,7 @@ TagManager:
     locked: 0
   - name: Units
     uniqueID: 1161506931
+    locked: 0
+  - name: levelUI
+    uniqueID: 2201294149
     locked: 0
