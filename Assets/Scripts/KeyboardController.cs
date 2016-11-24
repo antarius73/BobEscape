@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MovingObject
+public class KeyboardController : MovingObject
 {
 	private Animator _animator;
 	 

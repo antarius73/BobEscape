@@ -9,7 +9,7 @@ public abstract class MovingObject : MonoBehaviour
 	/// <summary>
 	/// speed factor for the movment between the tiles.
 	/// </summary>
-	public const float Movetime = 2f;
+	public const float Movetime = 3f;
 
 	/// <summary>
 	/// Layer containing gameobjects who block movement.
