@@ -9,7 +9,7 @@ public abstract class MovingObject : MonoBehaviour
 	/// <summary>
 	/// speed factor for the movment between the tiles.
 	/// </summary>
-	public const float Movetime = 2f;
+	public const float Movetime = 3f;
 
 	/// <summary>
 	/// Layer containing gameobjects who block movement.
@@ -29,7 +29,7 @@ public abstract class MovingObject : MonoBehaviour
 	/// Gets or sets a value indicating whether this <see cref="MovingObject"/> is moving.
 	/// </summary>
 	/// <value><c>true</c> if is moving; otherwise, <c>false</c>.</value>
-	protected bool isMoving {
+	protected virtual bool isMoving {
 		get {
 			return _isMoving;
 		}

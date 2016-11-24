@@ -12,6 +12,8 @@ GameObject:
   - 95: {fileID: 9502276}
   - 61: {fileID: 6117926}
   - 50: {fileID: 5000380}
+  - 114: {fileID: 114000013194377772}
+  - 114: {fileID: 114000012087224852}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -89,24 +91,27 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedWireframeHidden: 1
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1161506931
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300054, guid: 8787f8d57daba8146a8347e23ec2e596, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,3 +126,33 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 166434}
   m_IsPrefabParent: 1
+--- !u!114 &114000012087224852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e141404dd04b11a408d178b01e9c5bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlockingLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &114000013194377772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc874da1861a6743a5ab8bda0cb38f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlockingLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  MovementSelector: {fileID: 1000010997875162, guid: 4c50ac47f8ffe02409354d91ccf881a3,
+    type: 2}
