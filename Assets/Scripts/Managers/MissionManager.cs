@@ -10,6 +10,13 @@ public class MissionManager : MonoBehaviour, IGameManager
 	private const int _maxLevelX = 12;
 	private const int _maxLevelY = 6;
 
+	private LevelController _currentLevel;
+	public LevelController CurrentLevel {
+		get {
+			return _currentLevel;
+		}
+	}
+
 	/// <summary>
 	/// Gets the status.
 	/// </summary>

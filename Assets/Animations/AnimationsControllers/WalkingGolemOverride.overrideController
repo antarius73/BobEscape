@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: WalkingGolemOverride
+  m_Controller: {fileID: 9100000, guid: f1ddf34821b39413e9bd47ddc2ca1606, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: e7969993f7a866d47b255eb3c6146624, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5d79d2dc398b549099eeb6878645ca34, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 56c94ffa5b6a4a34ba405dca2e7c96c5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3f8cea73ab61f4804bd701eac7f15dac, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: dfb246d9023a1a64497acb13959a44c6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 040af413ce9fc4939af4267a9717a61d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1b9d252072ea9af478309df6ac6c6290, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 283da45fffddb4a33b05a663df4bdf03, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c49c7e1aebcd99845ac96bacd055b66a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 60d7169cbcc4ffa46952a0b8f63fd03e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7cbe85b3697cce74e80b23c633907851, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 521021ab93aca0646b664a372adcf3bd, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b3a8c53ab15e08f48ba2e06ea3c34439, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e0e72076764b7c84b98beef8f318d1d4, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 61903028be04eaa4c9d9e535211e059d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 954eb8e719216cd42abf1665595c235f, type: 2}
