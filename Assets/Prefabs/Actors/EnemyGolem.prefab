@@ -138,5 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BlockingLayer:
     serializedVersion: 2
-    m_Bits: 0
-  Target: {fileID: 166434, guid: b4b84288f66c44010a513c7e9836a20a, type: 2}
+    m_Bits: 1024

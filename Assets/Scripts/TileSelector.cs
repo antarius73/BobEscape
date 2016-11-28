@@ -62,7 +62,7 @@ public class TileSelector : MonoBehaviour
 			
 			distance = TileSelector.ManhattanDistance2D (start, tile.transform.position);
 
-			if (distance <= Managers.Player.MovementTileSpeed && distance > 0 && !Managers.Mission.CurrentLevel.CheckIfEnemyOnTile(tile.transform.position)) {
+			if (distance <= Managers.Player.MovementTileSpeed && distance > 0 && !Managers.Mission.CheckIfEnemyOnTile(tile.transform.position)) {
 			
 				this.InstantiateSelectableTile (tile.transform.position);
 
@@ -75,6 +75,10 @@ public class TileSelector : MonoBehaviour
 		return Mathf.Abs (end.x - start.x) + Mathf.Abs (end.y - start.y);
 	}
 
+	/// <summary>
+	/// Instantiates a selectable tile for UI.
+	/// </summary>
+	/// <param name="position">Position.</param>
 	private void InstantiateSelectableTile (Vector2 position)
 	{
 		GameObject selectableTile;

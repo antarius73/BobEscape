@@ -31,38 +31,42 @@ public class TurnManager : MonoBehaviour, IGameManager
 	{
 		this.PlayerTurn = true;
 		this.Status = ManagerStatus.Started;
-
 	}
 
-	void Awake(){
-
+	void Awake ()
+	{
 		Messenger.AddListener (GameEvent.MANAGERS_STARTED, OnManagersStarted);
 		Messenger.AddListener (GameEvent.PLAYER_MOVE_END, OnPlayerMoveEnd);
-
 		Messenger.AddListener (GameEvent.ENEMY_TURN_END, OnEnemyTurnEnd);
-
 	}
 
-	private void OnManagersStarted(){
+	private void OnManagersStarted ()
+	{
 		this.StartTurn ();
 	}
 
-	private void StartTurn(){
+	private void StartTurn ()
+	{
 		Messenger.Broadcast (GameEvent.PLAYER_TURN_START);
 	}
 
-	private void OnPlayerMoveEnd(){
+	private void OnPlayerMoveEnd ()
+	{
 		this.EnOfPlayerTurn ();	
 	}
 
-	private void EnOfPlayerTurn(){
-		//Messenger.Broadcast (GameEvent.PLAYER_TURN_END);
-		//Messenger.Broadcast (GameEvent.PLAYER_TURN_START);
-
+	private void EnOfPlayerTurn ()
+	{
 		Messenger.Broadcast (GameEvent.ENEMY_TURN_START);
 	}
 
-	private void OnEnemyTurnEnd(){
+	private void OnEnemyTurnEnd ()
+	{
+		this.EnOfEnemyTurn ();
+	}
+
+	private void EnOfEnemyTurn ()
+	{
 		Messenger.Broadcast (GameEvent.PLAYER_TURN_START);
 	}
 }
