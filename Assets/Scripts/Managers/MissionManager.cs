@@ -31,7 +31,7 @@ public class MissionManager : MonoBehaviour, IGameManager
 	/// </summary>
 	public void Startup ()
 	{
-		
+		this._currentLevel = new LevelController (13,7);
 		this.Status = ManagerStatus.Started;
 	}
 

@@ -7,22 +7,30 @@ using UnityEngine;
 
 namespace AStar
 {
-    /// <summary>
-    /// Defines the parameters which will be used to find a path across a section of the map
-    /// </summary>
-    public class SearchParameters
-    {
+	/// <summary>
+	/// Defines the parameters which will be used to find a path across a section of the map
+	/// </summary>
+	public class SearchParameters
+	{
 		public Vector3 StartLocation { get; set; }
 
 		public Vector3 EndLocation { get; set; }
-        
-        public bool[,] Map { get; set; }
 
-		public SearchParameters(Vector3 startLocation, Vector3 endLocation, bool[,] map)
-        {
-            this.StartLocation = startLocation;
-            this.EndLocation = endLocation;
-            this.Map = map;
-        }
-    }
+		public bool[,] Map { get; set; }
+
+		public bool IgnoreDiagonal = true;
+
+		public SearchParameters (Vector3 startLocation, Vector3 endLocation, bool[,] map)
+		{
+			this.StartLocation = startLocation;
+			this.EndLocation = endLocation;
+			this.Map = map;
+		}
+
+		public SearchParameters (Vector3 startLocation, Vector3 endLocation, bool[,] map, bool ignoreDiagonal) : this (startLocation, endLocation, map)
+		{
+
+			this.IgnoreDiagonal = ignoreDiagonal;
+		}
+	}
 }

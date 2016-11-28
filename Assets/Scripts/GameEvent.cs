@@ -8,4 +8,9 @@ public class GameEvent {
 	public const string PLAYER_MOVE_START = "PLAYER_MOVE_START";
 	public const string PLAYER_MOVE_END = "PLAYER_MOVE_END";
 	public const string PLAYER_TURN_END = "PLAYER_TURN_END";
+
+
+	public const string ENEMY_TURN_START = "ENEMY_TURN_START";
+	public const string ENEMY_TURN_END = "ENEMY_TURN_END";
+
 }

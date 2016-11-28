@@ -161,15 +161,29 @@ namespace AStar
         /// </summary>
         /// <param name="fromLocation">The location from which to return all adjacent points</param>
         /// <returns>The locations as an IEnumerable of Points</returns>
-		private static IEnumerable<Vector3> GetAdjacentLocations(Vector3 fromLocation)
+		private IEnumerable<Vector3> GetAdjacentLocations(Vector3 fromLocation)
         {
-			return new Vector3[]
-            {
-				new Vector3(fromLocation.x-1, fromLocation.y  ),
-				new Vector3(fromLocation.x,   fromLocation.y+1),
-				new Vector3(fromLocation.x+1, fromLocation.y  ),
-				new Vector3(fromLocation.x,   fromLocation.y-1)
-            };
+			if (this.searchParameters.IgnoreDiagonal) {
+				return new Vector3[] {
+					new Vector3 (fromLocation.x - 1, fromLocation.y),
+					new Vector3 (fromLocation.x, fromLocation.y + 1),
+					new Vector3 (fromLocation.x + 1, fromLocation.y),
+					new Vector3 (fromLocation.x, fromLocation.y - 1)
+				};
+			} else {
+				return new Vector3[] {
+					new Vector3 (fromLocation.x - 1, fromLocation.y),
+					new Vector3 (fromLocation.x, fromLocation.y + 1),
+					new Vector3 (fromLocation.x + 1, fromLocation.y),
+					new Vector3 (fromLocation.x, fromLocation.y - 1),
+
+					new Vector3 (fromLocation.x - 1, fromLocation.y-1),
+					new Vector3 (fromLocation.x+1, fromLocation.y + 1),
+					new Vector3 (fromLocation.x + 1, fromLocation.y-1),
+					new Vector3 (fromLocation.x-1, fromLocation.y + 1)
+				};
+			
+			}
         }
     }
 }

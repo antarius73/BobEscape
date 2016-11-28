@@ -62,7 +62,7 @@ public class TileSelector : MonoBehaviour
 			
 			distance = TileSelector.ManhattanDistance2D (start, tile.transform.position);
 
-			if (distance <= Managers.Player.MovementTileSpeed && distance > 0) {
+			if (distance <= Managers.Player.MovementTileSpeed && distance > 0 && !Managers.Mission.CurrentLevel.CheckIfEnemyOnTile(tile.transform.position)) {
 			
 				this.InstantiateSelectableTile (tile.transform.position);
 
@@ -92,4 +92,6 @@ public class TileSelector : MonoBehaviour
 			MonoBehaviour.Destroy (tile);
 		}
 	}
+
+
 }

@@ -39,6 +39,7 @@ public class TurnManager : MonoBehaviour, IGameManager
 		Messenger.AddListener (GameEvent.MANAGERS_STARTED, OnManagersStarted);
 		Messenger.AddListener (GameEvent.PLAYER_MOVE_END, OnPlayerMoveEnd);
 
+		Messenger.AddListener (GameEvent.ENEMY_TURN_END, OnEnemyTurnEnd);
 
 	}
 
@@ -56,6 +57,12 @@ public class TurnManager : MonoBehaviour, IGameManager
 
 	private void EnOfPlayerTurn(){
 		//Messenger.Broadcast (GameEvent.PLAYER_TURN_END);
+		//Messenger.Broadcast (GameEvent.PLAYER_TURN_START);
+
+		Messenger.Broadcast (GameEvent.ENEMY_TURN_START);
+	}
+
+	private void OnEnemyTurnEnd(){
 		Messenger.Broadcast (GameEvent.PLAYER_TURN_START);
 	}
 }
