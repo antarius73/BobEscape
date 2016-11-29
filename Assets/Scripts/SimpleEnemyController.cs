@@ -5,15 +5,15 @@ using System;
 /// <summary>
 /// Manage movement and animation of a Simple enemy who hot at contact.
 /// </summary>
-public class SimpleEnemyController : MovingCharactereController {
-
+public class SimpleEnemyController : MovingCharactereController
+{
 	/// <summary>
 	/// The target player for this enemy
 	/// </summary>
 	private GameObject _target;
 
-
 	private Vector3 _predictionMove;
+
 	/// <summary>
 	/// Gets the prediction move for the current game turn.
 	/// </summary>
@@ -40,33 +40,33 @@ public class SimpleEnemyController : MovingCharactereController {
 		Messenger.AddListener (GameEvent.ENEMY_MOVE_START, OnEnemyMoveStart);
 	}
 
-	private void OnEnemyMoveStart(){
+	private void OnEnemyMoveStart ()
+	{
 		this.MoveToPredictedDestination ();
 	}
 
-
-	private void OnEnemyMovePredictionStart(){
+	private void OnEnemyMovePredictionStart ()
+	{
 		this.PredictNextMove ();
-	//	Debug.Log ("("+this.transform.position.x+","+this.transform.position.y+") move to ("+this._predictionMove.x+","+this._predictionMove.y+")");
 	}
 
-	private void PredictNextMove(){
+	/// <summary>
+	/// Set the next predicate move 
+	/// </summary>
+	private void PredictNextMove ()
+	{
 		this._predictionMove = Managers.Mission.GetNextMoveTo (this.transform.position, this._target.transform.position);
 		Messenger.Broadcast (GameEvent.ENEMY_MOVE_PREDICTION_END);
 	}
 
-
+	/// <summary>
+	/// Trigger movement to the current predicate move
+	/// </summary>
 	private void MoveToPredictedDestination ()
 	{		
-
-		Debug.Log ("("+this.transform.position.x+","+this.transform.position.y+") move to ("+this._predictionMove.x+","+this._predictionMove.y+")");
-
-
 		if (this.PredictionMove != this.transform.position) {
-			Debug.Log ("lancer mv");
 			this.TriggerMovement (this._predictionMove.x, this._predictionMove.y);
 		} else {
-			Debug.Log ("imobilisé");
 			Messenger.Broadcast (GameEvent.ENEMY_MOVE_END);
 		}
 	}

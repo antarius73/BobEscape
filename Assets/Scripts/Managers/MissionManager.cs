@@ -21,16 +21,6 @@ public class MissionManager : MonoBehaviour, IGameManager
 
 	private int _enemiesCounter;
 
-	public int EnemiesCounter {
-		get {
-			return this._enemiesCounter;
-		}
-		set {
-			this._enemiesCounter = value;
-			Debug.Log ("_enemiesCounter=" + this._enemiesCounter);
-		}
-	}
-
 	/// <summary>
 	/// Gets the status.
 	/// </summary>
@@ -56,47 +46,54 @@ public class MissionManager : MonoBehaviour, IGameManager
 		Messenger.AddListener (GameEvent.ENEMY_MOVE_END, OnEnemyMoveEnd);
 	}
 
-	private void OnEnemyMoveEnd(){
+	private void OnEnemyMoveEnd ()
+	{
 		this.RegisterEnemiesMoveEnd ();
 	}
 
-	private void OnEnemyTurnStart(){
+	private void OnEnemyTurnStart ()
+	{
 		
 		this.LunchEnemiesMovePrediction ();
 	}
 
-	private void OnEnemyMovePredictionEnd(){
+	private void OnEnemyMovePredictionEnd ()
+	{
 		this.RegisterEnemiesMovePrediction ();
 	}
 
-	private void RegisterEnemiesMovePrediction(){
-		this.EnemiesCounter++;
-		if (this.EnemiesCounter == this._enemies.Length) {
-			Debug.Log ("mise a zero");
-			this.EnemiesCounter = 0;
-			Debug.Log ("all prediction ok");
+	/// <summary>
+	/// Lunch event ENEMY_MOVE_START when all prediction are made
+	/// </summary>
+	private void RegisterEnemiesMovePrediction ()
+	{
+		this._enemiesCounter++;
+		if (this._enemiesCounter == this._enemies.Length) {
+			this._enemiesCounter = 0;
 			Messenger.Broadcast (GameEvent.ENEMY_MOVE_START);
-
 		}
 	}
 
-
-	private void RegisterEnemiesMoveEnd(){
-		this.EnemiesCounter++;
-		if (this.EnemiesCounter == this._enemies.Length) {
-			Debug.Log ("all move ok");
+	/// <summary>
+	/// Lunch event ENEMY_TURN_END when all enemies movements are made
+	/// </summary>
+	private void RegisterEnemiesMoveEnd ()
+	{
+		this._enemiesCounter++;
+		if (this._enemiesCounter == this._enemies.Length) {
 			Messenger.Broadcast (GameEvent.ENEMY_TURN_END);
 		}
 	}
 
-
-	private void LunchEnemiesMovePrediction(){
-		Debug.Log ("mise a zero");
-		this.EnemiesCounter = 0;
+	/// <summary>
+	/// Trigger the ENEMY_MOVE_PREDICTION_START to all enemies
+	/// </summary>
+	private void LunchEnemiesMovePrediction ()
+	{
+		this._enemiesCounter = 0;
 		this._enemies = GameObject.FindGameObjectsWithTag ("Enemy");
 		Messenger.Broadcast (GameEvent.ENEMY_MOVE_PREDICTION_START);
 	}
-
 
 	/// <summary>
 	/// Check if a movement is in the bound of the game. 
@@ -138,9 +135,7 @@ public class MissionManager : MonoBehaviour, IGameManager
 		GameObject[] tiles = GameObject.FindGameObjectsWithTag ("Wall");	
 
 		foreach (var tile in tiles) {
-
 			this._baseMap [(int)tile.transform.position.x, (int)tile.transform.position.y] = false;
-
 		}	
 	}
 
@@ -164,17 +159,21 @@ public class MissionManager : MonoBehaviour, IGameManager
 			return currentPos;
 	}
 
-	private bool[,] GetBaseMapWithBlockingEnemies(){
+	/// <summary>
+	/// Add all enemies to the default level map
+	/// </summary>
+	/// <returns>A copie of the base map with blocking enemies.</returns>
+	private bool[,] GetBaseMapWithBlockingEnemies ()
+	{
 		bool[,] currentMap = (bool[,])this._baseMap.Clone ();
 		SimpleEnemyController enemyCtrl;
 
 		foreach (var enemy in this._enemies) {
-			enemyCtrl = enemy.GetComponent<SimpleEnemyController>();
+			enemyCtrl = enemy.GetComponent<SimpleEnemyController> ();
 			currentMap [(int)enemyCtrl.PredictionMove.x, (int)enemyCtrl.PredictionMove.y] = false;
 		}
 
 		return currentMap;
-
 	}
 
 	/// <summary>
@@ -189,7 +188,6 @@ public class MissionManager : MonoBehaviour, IGameManager
 		foreach (var Enemy in EnemyTiles) {
 			if (Enemy.transform.position == tile)
 				return true;
-
 		}
 		return false;
 	}
