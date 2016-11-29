@@ -54,30 +54,18 @@ public abstract class MovingObject : MonoBehaviour
 	/// <param name="xDir">X destination</param>
 	/// <param name="yDir">Y destination</param>
 	/// <param name="hit">Hit result if blocked movement</param>
-	protected bool Move (int xDir, int yDir, out RaycastHit2D hit)
+	protected bool Move (int xDir, int yDir)
 	{
 		Vector2 start = transform.position;
 		Vector2 end = start + new Vector2 (xDir, yDir);
 
-		//Debug.Log ("X : "+end.x+"Y : "+end.y);
-
-		// colision test with the blocking layer.
-		this._boxCollider.enabled = false;
-		hit = Physics2D.Linecast (start, end, this.BlockingLayer);
-		this._boxCollider.enabled = true;
-
 		// check if movement in game bound
 		if (!Managers.Mission.AllowedMovement (end))
 			return false;
-		
-		// if all is ok, start the movement
-		if (hit.transform == null) {
-			// indicate that a movement is in progress
-			this.isMoving = true;
-			StartCoroutine (SmoothMovement (end));
-			return true;
-		}
-		return false;
+
+		this.isMoving = true;
+		StartCoroutine (SmoothMovement (end));
+		return true;
 	}
 
 	/// <summary>

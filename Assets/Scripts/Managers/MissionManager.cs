@@ -17,6 +17,20 @@ public class MissionManager : MonoBehaviour, IGameManager
 	/// </summary>
 	private bool[,] _baseMap;
 
+	private GameObject[] _enemies;
+
+	private int _enemiesCounter;
+
+	public int EnemiesCounter {
+		get {
+			return this._enemiesCounter;
+		}
+		set {
+			this._enemiesCounter = value;
+			Debug.Log ("_enemiesCounter=" + this._enemiesCounter);
+		}
+	}
+
 	/// <summary>
 	/// Gets the status.
 	/// </summary>
@@ -34,6 +48,55 @@ public class MissionManager : MonoBehaviour, IGameManager
 		this.SetBaseMap ();
 		this.Status = ManagerStatus.Started;
 	}
+
+	void Awake ()
+	{
+		Messenger.AddListener (GameEvent.ENEMY_TURN_START, OnEnemyTurnStart);
+		Messenger.AddListener (GameEvent.ENEMY_MOVE_PREDICTION_END, OnEnemyMovePredictionEnd);
+		Messenger.AddListener (GameEvent.ENEMY_MOVE_END, OnEnemyMoveEnd);
+	}
+
+	private void OnEnemyMoveEnd(){
+		this.RegisterEnemiesMoveEnd ();
+	}
+
+	private void OnEnemyTurnStart(){
+		
+		this.LunchEnemiesMovePrediction ();
+	}
+
+	private void OnEnemyMovePredictionEnd(){
+		this.RegisterEnemiesMovePrediction ();
+	}
+
+	private void RegisterEnemiesMovePrediction(){
+		this.EnemiesCounter++;
+		if (this.EnemiesCounter == this._enemies.Length) {
+			Debug.Log ("mise a zero");
+			this.EnemiesCounter = 0;
+			Debug.Log ("all prediction ok");
+			Messenger.Broadcast (GameEvent.ENEMY_MOVE_START);
+
+		}
+	}
+
+
+	private void RegisterEnemiesMoveEnd(){
+		this.EnemiesCounter++;
+		if (this.EnemiesCounter == this._enemies.Length) {
+			Debug.Log ("all move ok");
+			Messenger.Broadcast (GameEvent.ENEMY_TURN_END);
+		}
+	}
+
+
+	private void LunchEnemiesMovePrediction(){
+		Debug.Log ("mise a zero");
+		this.EnemiesCounter = 0;
+		this._enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+		Messenger.Broadcast (GameEvent.ENEMY_MOVE_PREDICTION_START);
+	}
+
 
 	/// <summary>
 	/// Check if a movement is in the bound of the game. 
@@ -89,14 +152,29 @@ public class MissionManager : MonoBehaviour, IGameManager
 	/// <param name="targetPos">Target position.</param>
 	public Vector3 GetNextMoveTo (Vector3 currentPos, Vector3 targetPos)
 	{		
-		SearchParameters searchParameters = new SearchParameters (currentPos, targetPos, this._baseMap);
+		bool[,] currentMap = this.GetBaseMapWithBlockingEnemies ();
+
+		SearchParameters searchParameters = new SearchParameters (currentPos, targetPos, currentMap);
 		PathFinder path = new PathFinder (searchParameters);
 		List<Vector3> findedPath = path.FindPath ();
 
-		if (findedPath.Count > 0)
+		if (findedPath.Count > 1)
 			return findedPath [0];
 		else
 			return currentPos;
+	}
+
+	private bool[,] GetBaseMapWithBlockingEnemies(){
+		bool[,] currentMap = (bool[,])this._baseMap.Clone ();
+		SimpleEnemyController enemyCtrl;
+
+		foreach (var enemy in this._enemies) {
+			enemyCtrl = enemy.GetComponent<SimpleEnemyController>();
+			currentMap [(int)enemyCtrl.PredictionMove.x, (int)enemyCtrl.PredictionMove.y] = false;
+		}
+
+		return currentMap;
+
 	}
 
 	/// <summary>

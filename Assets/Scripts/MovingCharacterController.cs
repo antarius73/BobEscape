@@ -83,8 +83,7 @@ public class MovingCharactereController :  MovingObject
 	{
 		this._horizontal = Convert.ToInt32 (xDest - this.transform.position.x);
 		this._vertical = Convert.ToInt32 (yDest - this.transform.position.y);
-		RaycastHit2D hit;
-		this.Move (this._horizontal, this._vertical, out hit);	
+		this.Move (this._horizontal, this._vertical);	
 	}
 		
 	void Update ()

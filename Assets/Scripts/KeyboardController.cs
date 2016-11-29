@@ -30,10 +30,9 @@ public class KeyboardController : MovingObject
 
 
 		if (IsWalking && Input.anyKeyDown && !this.isMoving) {
-			RaycastHit2D hit;
 			this._animator.SetFloat ("X", horizontal);
 			this._animator.SetFloat ("Y", vertical);
-			this.Move (horizontal, vertical, out hit);	
+			this.Move (horizontal, vertical);	
 		}
 		//Debug.Log ("this.isMoving : "+this.isMoving);
 		this._animator.SetBool ("IsWalking", this.isMoving);

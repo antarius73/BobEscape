@@ -12,23 +12,62 @@ public class SimpleEnemyController : MovingCharactereController {
 	/// </summary>
 	private GameObject _target;
 
+
+	private Vector3 _predictionMove;
+	/// <summary>
+	/// Gets the prediction move for the current game turn.
+	/// </summary>
+	/// <value>The prediction move.</value>
+	public Vector3 PredictionMove {
+		get {
+			return this._predictionMove;
+		}
+	}
+
 	protected override void Start ()
 	{		
 		this.Horizontal = -1;
 		this.Vertical = 0;
-		this.MoveEndEvent = GameEvent.ENEMY_TURN_END;
+		this.MoveEndEvent = GameEvent.ENEMY_MOVE_END;
 		this._target = GameObject.FindGameObjectWithTag ("Player");
+		this._predictionMove = this.transform.position;
 		base.Start ();
 	}
 
 	private void Awake ()
 	{
-		Messenger.AddListener (GameEvent.ENEMY_TURN_START, onEnemyTurnStart);
+		Messenger.AddListener (GameEvent.ENEMY_MOVE_PREDICTION_START, OnEnemyMovePredictionStart);
+		Messenger.AddListener (GameEvent.ENEMY_MOVE_START, OnEnemyMoveStart);
 	}
 
-	private void onEnemyTurnStart ()
+	private void OnEnemyMoveStart(){
+		this.MoveToPredictedDestination ();
+	}
+
+
+	private void OnEnemyMovePredictionStart(){
+		this.PredictNextMove ();
+	//	Debug.Log ("("+this.transform.position.x+","+this.transform.position.y+") move to ("+this._predictionMove.x+","+this._predictionMove.y+")");
+	}
+
+	private void PredictNextMove(){
+		this._predictionMove = Managers.Mission.GetNextMoveTo (this.transform.position, this._target.transform.position);
+		Messenger.Broadcast (GameEvent.ENEMY_MOVE_PREDICTION_END);
+	}
+
+
+	private void MoveToPredictedDestination ()
 	{		
-		Vector3 targetTile = Managers.Mission.GetNextMoveTo (this.transform.position, this._target.transform.position);
-		this.TriggerMovement (targetTile.x, targetTile.y);
+
+		Debug.Log ("("+this.transform.position.x+","+this.transform.position.y+") move to ("+this._predictionMove.x+","+this._predictionMove.y+")");
+
+
+		if (this.PredictionMove != this.transform.position) {
+			Debug.Log ("lancer mv");
+			this.TriggerMovement (this._predictionMove.x, this._predictionMove.y);
+		} else {
+			Debug.Log ("imobilisé");
+			Messenger.Broadcast (GameEvent.ENEMY_MOVE_END);
+		}
 	}
 }
