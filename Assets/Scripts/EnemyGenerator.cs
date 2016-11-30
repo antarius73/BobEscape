@@ -61,7 +61,7 @@ public class EnemyGenerator : MonoBehaviour
 	{
 		GameObject spawnEffect = Instantiate (this.SpawnVisualEffect);
 		spawnEffect.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, 5);
-
+	
 	}
 
 
