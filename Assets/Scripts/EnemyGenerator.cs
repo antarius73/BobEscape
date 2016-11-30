@@ -12,6 +12,9 @@ public class EnemyGenerator : MonoBehaviour
 	/// </summary>
 	public GameObject EnemyType;
 
+
+	public GameObject SpawnVisualEffect;
+
 	/// <summary>
 	/// probability to spawn each turn
 	/// </summary>
@@ -33,6 +36,7 @@ public class EnemyGenerator : MonoBehaviour
 	private void DoGeneratorAction ()
 	{
 		if (this.SpawnProbabilityTest () && this.GeneratorSpaceAvaible ()) {
+			this.GenerateSpawnEffect ();
 			this.GenerateEnemy ();
 		} else {
 			Messenger.Broadcast (GameEvent.WORLD_ITEM_TURN_END);
@@ -48,6 +52,19 @@ public class EnemyGenerator : MonoBehaviour
 		spawnEnemy.transform.position = this.transform.position;
 		Messenger.Broadcast (GameEvent.WORLD_ITEM_TURN_END);
 	}
+
+
+	/// <summary>
+	/// Generates an enemy on the generator.
+	/// </summary>
+	private void GenerateSpawnEffect ()
+	{
+		GameObject spawnEffect = Instantiate (this.SpawnVisualEffect);
+		spawnEffect.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, 5);
+
+	}
+
+
 
 	/// <summary>
 	/// Test the spawning probabilities
