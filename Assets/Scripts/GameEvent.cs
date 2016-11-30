@@ -9,12 +9,16 @@ public class GameEvent {
 	public const string PLAYER_MOVE_END = "PLAYER_MOVE_END";
 	public const string PLAYER_TURN_END = "PLAYER_TURN_END";
 
-
 	public const string ENEMY_TURN_START = "ENEMY_TURN_START";
 	public const string ENEMY_MOVE_PREDICTION_START = "ENEMY_MOVE_PREDICTION_START";
 	public const string ENEMY_MOVE_PREDICTION_END = "ENEMY_MOVE_PREDICTION_END";
 	public const string ENEMY_MOVE_START = "ENEMY_MOVE_START";
 	public const string ENEMY_MOVE_END = "ENEMY_MOVE_END";
 	public const string ENEMY_TURN_END = "ENEMY_TURN_END";
+
+	public const string WORLD_TURN_START = "WORLD_TURN_START";
+	public const string WORLD_ITEM_TURN_START = "WORLD_ITEM_TURN_START";
+	public const string WORLD_ITEM_TURN_END = "WORLD_ITEM_TURN_END";
+	public const string WORLD_TURN_END = "WORLD_TURN_END";
 
 }

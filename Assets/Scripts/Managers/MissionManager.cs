@@ -17,9 +17,26 @@ public class MissionManager : MonoBehaviour, IGameManager
 	/// </summary>
 	private bool[,] _baseMap;
 
+	/// <summary>
+	/// Array of all current enemies.
+	/// </summary>
 	private GameObject[] _enemies;
 
+	/// <summary>
+	/// Use for detect that all enemies have respond to an event
+	/// </summary>
 	private int _enemiesCounter;
+
+	/// <summary>
+	/// Array of all current generator
+	/// </summary>
+	private GameObject[] _generators;
+
+	/// <summary>
+	/// Use for detect that all gerators have respond to an event
+	/// </summary>
+	private int __generatorCounter;
+
 
 	/// <summary>
 	/// Gets the status.
@@ -44,6 +61,8 @@ public class MissionManager : MonoBehaviour, IGameManager
 		Messenger.AddListener (GameEvent.ENEMY_TURN_START, OnEnemyTurnStart);
 		Messenger.AddListener (GameEvent.ENEMY_MOVE_PREDICTION_END, OnEnemyMovePredictionEnd);
 		Messenger.AddListener (GameEvent.ENEMY_MOVE_END, OnEnemyMoveEnd);
+		Messenger.AddListener (GameEvent.WORLD_TURN_START, OnWorldTurnStart);
+		Messenger.AddListener (GameEvent.WORLD_ITEM_TURN_END, OnWorldItemTurnEnd);
 	}
 
 	private void OnEnemyMoveEnd ()
@@ -60,6 +79,14 @@ public class MissionManager : MonoBehaviour, IGameManager
 	private void OnEnemyMovePredictionEnd ()
 	{
 		this.RegisterEnemiesMovePrediction ();
+	}
+
+	private void OnWorldTurnStart(){
+		this.LunchGeneratorAction ();
+	}
+
+	private void OnWorldItemTurnEnd(){
+		this.RegisterGeneratorActionEnded ();
 	}
 
 	/// <summary>
@@ -93,6 +120,27 @@ public class MissionManager : MonoBehaviour, IGameManager
 		this._enemiesCounter = 0;
 		this._enemies = GameObject.FindGameObjectsWithTag ("Enemy");
 		Messenger.Broadcast (GameEvent.ENEMY_MOVE_PREDICTION_START);
+	}
+
+	/// <summary>
+	/// Trigger the WORLD_ITEM_TURN_START to all generator of the game
+	/// </summary>
+	private void LunchGeneratorAction(){
+		this.__generatorCounter = 0;
+		this._generators = this.GetGameObjectFromSubTags ("Generator");
+		Messenger.Broadcast (GameEvent.WORLD_ITEM_TURN_START);
+
+	}
+
+	/// <summary>
+	/// Lunch event WORLD_TURN_END when all generator actions are made
+	/// </summary>
+	private void RegisterGeneratorActionEnded ()
+	{
+		this.__generatorCounter++;
+		if (this.__generatorCounter == this._generators.Length) {
+			Messenger.Broadcast (GameEvent.WORLD_TURN_END);
+		}
 	}
 
 	/// <summary>
@@ -190,5 +238,23 @@ public class MissionManager : MonoBehaviour, IGameManager
 				return true;
 		}
 		return false;
+	}
+
+	/// <summary>
+	/// Gets the list of gameObject who have at list an child tagged with the subtag.
+	/// The purpose of this methode is to allowed, via a workaround multiple, tagged prefab instance
+	/// </summary>
+	/// <returns>The game object from sub tags.</returns>
+	/// <param name="subTag">Sub tag.</param>
+	private GameObject[] GetGameObjectFromSubTags(string subTag)
+	{
+		GameObject[] subObjects = GameObject.FindGameObjectsWithTag(subTag);
+		GameObject[] parentObjects = new GameObject[subObjects.Length];
+
+		for (int i = 0; i < subObjects.Length; i++) {
+				parentObjects[i]= subObjects[i].transform.parent.gameObject;
+		}
+
+		return parentObjects;
 	}
 }
