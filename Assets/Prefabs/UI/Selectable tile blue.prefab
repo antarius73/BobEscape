@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f751257100aa795458e9fbf3bd2e59c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TriggerOnSelection: 3
 --- !u!212 &212000012335570766
 SpriteRenderer:
   m_ObjectHideFlags: 1

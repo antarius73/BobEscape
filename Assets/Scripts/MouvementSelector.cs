@@ -23,10 +23,11 @@ public class MouvementSelector : TileSelector
 	void Awake ()
 	{
 		Messenger.AddListener (GameEvent.PLAYER_TURN_START, onPlayerTurnStart);
-		Messenger<float,float>.AddListener (GameEvent.PLAYER_DESTINATION_SELECTED, onPlayerDestinationSelected);
+		Messenger<float,float>.AddListener (GameEvent.PLAYER_DESTINATION_SELECTED, OnActionSelected);
+		Messenger<float,float>.AddListener (GameEvent.PLAYER_TARGET_SELECTED, OnActionSelected);
 	}
 
-	private void onPlayerDestinationSelected (float xDest, float yDest)
+	private void OnActionSelected (float xDest, float yDest)
 	{
 		this.ClearAllSelectableTile ();
 	}
