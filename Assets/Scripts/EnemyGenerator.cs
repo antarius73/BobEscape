@@ -72,7 +72,7 @@ public class EnemyGenerator : MonoBehaviour
 	/// <returns><c>true</c>, if probability test was spawned, <c>false</c> otherwise.</returns>
 	private bool SpawnProbabilityTest ()
 	{
-		return Random.value >= this.SpawnProbability;	
+		return Random.value <= this.SpawnProbability;	
 
 	}
 
