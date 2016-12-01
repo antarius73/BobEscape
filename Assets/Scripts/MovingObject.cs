@@ -16,11 +16,6 @@ public abstract class MovingObject : MonoBehaviour
 	/// </summary>
 	public LayerMask BlockingLayer;
 
-	/// <summary>
-	/// The box collider of this object
-	/// </summary>
-	private BoxCollider2D _boxCollider;
-
 	private Rigidbody2D _rb2D;
 
 	private bool _isMoving;
@@ -44,7 +39,6 @@ public abstract class MovingObject : MonoBehaviour
 	protected virtual void Start ()
 	{
 		this.isMoving = false;
-		this._boxCollider = GetComponent<BoxCollider2D> ();
 		this._rb2D = GetComponent<Rigidbody2D> ();      
 	}
 

@@ -21,9 +21,9 @@ GameObject:
   - 4: {fileID: 4000012516610804}
   - 212: {fileID: 212000012335570766}
   - 114: {fileID: 114000012359008562}
-  - 61: {fileID: 61000011614890642}
+  - 61: {fileID: 61000012640694630}
   m_Layer: 0
-  m_Name: Selectable tile blue
+  m_Name: Selectable tile red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &61000011614890642
+--- !u!61 &61000012640694630
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2093673147
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 228166571b78acb4b8e739c779cc62d0, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 228166571b78acb4b8e739c779cc62d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.54901963}
   m_FlipX: 0
   m_FlipY: 0

@@ -8,69 +8,27 @@ using System.Collections.Generic;
 public class TileSelector : MonoBehaviour
 {
 	/// <summary>
-	/// Layer containing gameobjects who block movement.
+	/// Layer containing gameobjects who block LOS.
 	/// </summary>
 	public LayerMask BlockingLayer;
 
 	/// <summary>
 	/// Asset tile specific for selectionUI purpose.
 	/// </summary>
-	public GameObject MovementSelector;
+	public GameObject SelectorType;
 
 	/// <summary>
-	/// List of tile generated for section UI purpose. 
+	/// List of tile generated for selection UI purpose. 
 	/// </summary>
 	private List<GameObject> _lstTilesSelectable;
 
-	/// <summary>
-	/// Containe all tile reachable by the player in the level.
-	/// </summary>
-	private GameObject[] _ReachableTiles;
-
 	// Use this for initialization
-	void Start ()
+	protected virtual void Start ()
 	{
 		this._lstTilesSelectable = new List<GameObject> ();
-		this._ReachableTiles = GameObject.FindGameObjectsWithTag ("ReachableTile");	
 	}
 
-	void Awake ()
-	{
-		Messenger.AddListener (GameEvent.PLAYER_TURN_START, onPlayerTurnStart);
-		Messenger<float,float>.AddListener (GameEvent.PLAYER_DESTINATION_SELECTED, onPlayerDestinationSelected);
-	}
-
-	private void onPlayerDestinationSelected (float xDest, float yDest)
-	{
-		this.ClearAllSelectableTile ();
-	}
-
-	private void onPlayerTurnStart ()
-	{
-		this.ShowMouvementReachableTile ();
-	}
-
-	/// <summary>
-	/// Show UI tile for movement of the player
-	/// </summary>
-	private void ShowMouvementReachableTile ()
-	{
-		Vector2 start = transform.position;	
-		float distance;
-
-		foreach (var tile in this._ReachableTiles) {
-			
-			distance = TileSelector.ManhattanDistance2D (start, tile.transform.position);
-
-			if (distance <= Managers.Player.MovementTileSpeed && distance > 0 && !Managers.Mission.CheckIfEnemyOnTile(tile.transform.position)) {
-			
-				this.InstantiateSelectableTile (tile.transform.position);
-
-			}
-		}	
-	}
-
-	private static float ManhattanDistance2D (Vector2 start, Vector2 end)
+	protected static float ManhattanDistance2D (Vector2 start, Vector2 end)
 	{
 		return Mathf.Abs (end.x - start.x) + Mathf.Abs (end.y - start.y);
 	}
@@ -79,10 +37,10 @@ public class TileSelector : MonoBehaviour
 	/// Instantiates a selectable tile for UI.
 	/// </summary>
 	/// <param name="position">Position.</param>
-	private void InstantiateSelectableTile (Vector2 position)
+	protected void InstantiateSelectableTile (Vector2 position)
 	{
 		GameObject selectableTile;
-		selectableTile = Instantiate (this.MovementSelector);
+		selectableTile = Instantiate (this.SelectorType);
 		selectableTile.transform.position = position;
 		this._lstTilesSelectable.Add (selectableTile);
 	}
@@ -90,7 +48,7 @@ public class TileSelector : MonoBehaviour
 	/// <summary>
 	/// Delete all the UI tile when the destination has been choosen.
 	/// </summary>
-	private void ClearAllSelectableTile ()
+	protected void ClearAllSelectableTile ()
 	{	
 		foreach (var tile in this._lstTilesSelectable) {
 			MonoBehaviour.Destroy (tile);
