@@ -142,7 +142,7 @@ MonoBehaviour:
   BlockingLayer:
     serializedVersion: 2
     m_Bits: 1024
-  MovementSelector: {fileID: 1000010997875162, guid: 43915174e0c781247b9aad504041fa09,
+  SelectorType: {fileID: 1000010997875162, guid: 43915174e0c781247b9aad504041fa09,
     type: 2}
 --- !u!114 &114000012087224852
 MonoBehaviour:
@@ -170,6 +170,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spellRange: 5
+  SpellVisualEffect: {fileID: 1000010007958608, guid: 8f1554de1752e23449e1fe59cef8238c,
+    type: 2}
+  SpellExplosionEffect: {fileID: 100010, guid: 93f2c95ad8a9048aba5958f95784f8f5, type: 2}
 --- !u!114 &114000013152749884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,5 +187,5 @@ MonoBehaviour:
   BlockingLayer:
     serializedVersion: 2
     m_Bits: 1024
-  MovementSelector: {fileID: 1000010997875162, guid: 4c50ac47f8ffe02409354d91ccf881a3,
+  SelectorType: {fileID: 1000010997875162, guid: 4c50ac47f8ffe02409354d91ccf881a3,
     type: 2}

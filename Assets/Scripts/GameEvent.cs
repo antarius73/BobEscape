@@ -25,6 +25,7 @@ public class GameEvent
 	public const string WORLD_ITEM_TURN_END = "WORLD_ITEM_TURN_END";
 	public const string WORLD_TURN_END = "WORLD_TURN_END";
 
+	public const string DAMAGE_ON_TILE = "DAMAGE_ON_TILE";
 
 
 }
@@ -49,5 +50,6 @@ public enum enmGameEvents
 	WORLD_TURN_START = 16,
 	WORLD_ITEM_TURN_START = 17,
 	WORLD_ITEM_TURN_END = 18,
-	WORLD_TURN_END = 19
+	WORLD_TURN_END = 19,
+	DAMAGE_ON_TILE =20,
 }

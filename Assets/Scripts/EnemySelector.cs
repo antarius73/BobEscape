@@ -15,7 +15,7 @@ public class EnemySelector : TileSelector
 	/// <summary>
 	/// The player attack spell
 	/// </summary>
-	private FireBall _spell; 
+	private SpellController _spellController; 
 
 	/// <summary>
 	/// The player collider.
@@ -27,7 +27,7 @@ public class EnemySelector : TileSelector
 	{
 		
 		this._PlayerCollider = this.GetComponent<Collider2D> ();
-		this._spell = this.GetComponent<FireBall> ();
+		this._spellController = this.GetComponent<SpellController> ();
 		base.Start ();
 	}
 
@@ -63,7 +63,7 @@ public class EnemySelector : TileSelector
 		foreach (var tile in this._EnemiesTiles) {
 			
 			distance = EnemySelector.ManhattanDistance2D (start, tile.transform.position);
-			if (distance <= this._spell.SpellRange && distance > 0 && this.HasLineOfSightOnTarget(tile.transform.position)) {
+			if (distance <= this._spellController.SpellRange && distance > 0 && this.HasLineOfSightOnTarget(tile.transform.position)) {
 			
 				this.InstantiateSelectableTile (tile.transform.position);
 

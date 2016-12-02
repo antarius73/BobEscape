@@ -6,10 +6,14 @@ using System.Collections;
 /// </summary>
 public abstract class MovingObject : MonoBehaviour
 {
+	private float _movetime=3f;
 	/// <summary>
 	/// speed factor for the movment between the tiles.
 	/// </summary>
-	public const float Movetime = 3f;
+	public float Movetime {
+		get{ return this._movetime;}
+		set{ this._movetime = value;}
+	}
 
 	/// <summary>
 	/// Layer containing gameobjects who block movement.
@@ -19,7 +23,6 @@ public abstract class MovingObject : MonoBehaviour
 	private Rigidbody2D _rb2D;
 
 	private bool _isMoving;
-
 	/// <summary>
 	/// Gets or sets a value indicating whether this <see cref="MovingObject"/> is moving.
 	/// </summary>

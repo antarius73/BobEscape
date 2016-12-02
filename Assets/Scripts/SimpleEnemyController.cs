@@ -7,6 +7,13 @@ using System;
 /// </summary>
 public class SimpleEnemyController : MovingCharactereController
 {
+	private int _life;
+	public int Life {
+		get {
+			return this._life;
+		}
+	}
+
 	/// <summary>
 	/// The target player for this enemy
 	/// </summary>
@@ -38,6 +45,7 @@ public class SimpleEnemyController : MovingCharactereController
 	{
 		Messenger.AddListener (GameEvent.ENEMY_MOVE_PREDICTION_START, OnEnemyMovePredictionStart);
 		Messenger.AddListener (GameEvent.ENEMY_MOVE_START, OnEnemyMoveStart);
+		Messenger<float,float,int>.AddListener (GameEvent.DAMAGE_ON_TILE, OnDamageOnTile);
 	}
 
 	private void OnEnemyMoveStart ()
@@ -50,6 +58,13 @@ public class SimpleEnemyController : MovingCharactereController
 		this.PredictNextMove ();
 	}
 
+	private void OnDamageOnTile(float tileX, float tileY, int damageAmount){
+	
+		if (this.transform.position.x == tileX && this.transform.position.y == tileY) {
+			this.TakeDamage (damageAmount);
+		} 
+	}
+
 	/// <summary>
 	/// Set the next predicate move 
 	/// </summary>
@@ -57,6 +72,7 @@ public class SimpleEnemyController : MovingCharactereController
 	{
 		this._predictionMove = Managers.Mission.GetNextMoveTo (this.transform.position, this._target.transform.position);
 		Messenger.Broadcast (GameEvent.ENEMY_MOVE_PREDICTION_END);
+
 	}
 
 	/// <summary>
@@ -69,5 +85,19 @@ public class SimpleEnemyController : MovingCharactereController
 		} else {
 			Messenger.Broadcast (GameEvent.ENEMY_MOVE_END);
 		}
+	}
+
+	public void TakeDamage(int damageAmount){
+		this._life -= damageAmount;
+		if (this.Life <= 0) {
+			this.destroyMe ();
+		}
+	}
+
+	public void destroyMe(){
+		Messenger.RemoveListener (GameEvent.ENEMY_MOVE_PREDICTION_START, OnEnemyMovePredictionStart);
+		Messenger.RemoveListener (GameEvent.ENEMY_MOVE_START, OnEnemyMoveStart);
+		Messenger<float,float,int>.RemoveListener (GameEvent.DAMAGE_ON_TILE, OnDamageOnTile);
+		MonoBehaviour.Destroy (this.gameObject, 3);
 	}
 }

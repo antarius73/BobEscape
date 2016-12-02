@@ -55,9 +55,9 @@ TagManager:
   - name: Units
     uniqueID: 1161506931
     locked: 0
-  - name: levelUI
-    uniqueID: 2201294149
-    locked: 0
   - name: VisualEffect
     uniqueID: 1260819635
+    locked: 0
+  - name: levelUI
+    uniqueID: 2201294149
     locked: 0

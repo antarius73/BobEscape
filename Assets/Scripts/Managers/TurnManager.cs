@@ -37,6 +37,8 @@ public class TurnManager : MonoBehaviour, IGameManager
 	{
 		Messenger.AddListener (GameEvent.MANAGERS_STARTED, OnManagersStarted);
 		Messenger.AddListener (GameEvent.PLAYER_MOVE_END, OnPlayerMoveEnd);
+
+		Messenger.AddListener (GameEvent.PLAYER_ATTACK_END, OnPlayerAttackEnd);
 		Messenger.AddListener (GameEvent.ENEMY_TURN_END, OnEnemyTurnEnd);
 		Messenger.AddListener (GameEvent.WORLD_TURN_END, OnWorldTurnEnd);
 	}
@@ -52,6 +54,11 @@ public class TurnManager : MonoBehaviour, IGameManager
 	}
 
 	private void OnPlayerMoveEnd ()
+	{
+		this.StartEnemiesTurn ();	
+	}
+
+	private void OnPlayerAttackEnd ()
 	{
 		this.StartEnemiesTurn ();	
 	}
