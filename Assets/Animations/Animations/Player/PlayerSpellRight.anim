@@ -18,12 +18,6 @@ AnimationClip:
   m_FloatCurves: []
   m_PPtrCurves:
   - curve:
-    - time: 0
-      value: {fileID: 21300042, guid: f24eebb5f6f6e4fb9b036139dc40bad9, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300044, guid: f24eebb5f6f6e4fb9b036139dc40bad9, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300046, guid: f24eebb5f6f6e4fb9b036139dc40bad9, type: 3}
     - time: 0.25
       value: {fileID: 21300048, guid: f24eebb5f6f6e4fb9b036139dc40bad9, type: 3}
     - time: 0.33333334
@@ -50,9 +44,6 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300042, guid: f24eebb5f6f6e4fb9b036139dc40bad9, type: 3}
-    - {fileID: 21300044, guid: f24eebb5f6f6e4fb9b036139dc40bad9, type: 3}
-    - {fileID: 21300046, guid: f24eebb5f6f6e4fb9b036139dc40bad9, type: 3}
     - {fileID: 21300048, guid: f24eebb5f6f6e4fb9b036139dc40bad9, type: 3}
     - {fileID: 21300050, guid: f24eebb5f6f6e4fb9b036139dc40bad9, type: 3}
     - {fileID: 21300052, guid: f24eebb5f6f6e4fb9b036139dc40bad9, type: 3}
@@ -67,8 +58,8 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
-    m_LoopBlend: 0
+    m_LoopTime: 0
+    m_LoopBlend: 1
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
     m_LoopBlendPositionXZ: 0
@@ -82,4 +73,11 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.5
+    functionName: OnPlayerAttackEnd
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

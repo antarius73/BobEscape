@@ -90,15 +90,19 @@ public class SimpleEnemyController : MovingCharactereController
 	public void TakeDamage(int damageAmount){
 		this._life -= damageAmount;
 		if (this.Life <= 0) {
-			this.destroyMe ();
+//			Debug.Log ("TakeDamage to death");
+			this.DestroyMe ();
 		}
 	}
 
-	public void destroyMe(){
+	public void DestroyMe(){
+	//	Debug.Log ("trigger is dying");
+	//	Debug.Log ("is dying state befor"+this.Animator.GetBool("IsDying"));
 		this.Animator.SetBool ("IsDying", true);
+	//	Debug.Log ("is dying state after"+this.Animator.GetBool("IsDying"));
 		Messenger.RemoveListener (GameEvent.ENEMY_MOVE_PREDICTION_START, OnEnemyMovePredictionStart);
 		Messenger.RemoveListener (GameEvent.ENEMY_MOVE_START, OnEnemyMoveStart);
 		Messenger<float,float,int>.RemoveListener (GameEvent.DAMAGE_ON_TILE, OnDamageOnTile);
-		MonoBehaviour.Destroy (this.gameObject, 3);
+		MonoBehaviour.Destroy (this.gameObject, 2);
 	}
 }

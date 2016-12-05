@@ -119,7 +119,11 @@ public class MissionManager : MonoBehaviour, IGameManager
 	{
 		this._enemiesCounter = 0;
 		this._enemies = GameObject.FindGameObjectsWithTag ("Enemy");
-		Messenger.Broadcast (GameEvent.ENEMY_MOVE_PREDICTION_START);
+		if (this._enemies.Length > 0)
+			Messenger.Broadcast (GameEvent.ENEMY_MOVE_PREDICTION_START);
+		else {
+			Messenger.Broadcast (GameEvent.ENEMY_TURN_END);
+		}
 	}
 
 	/// <summary>
@@ -206,6 +210,24 @@ public class MissionManager : MonoBehaviour, IGameManager
 		else
 			return currentPos;
 	}
+
+
+	public Vector3 GetFacingTo(Vector3 currentPos, Vector3 targetPos)
+	{		
+		bool[,] currentMap = this._baseMap;
+
+		SearchParameters searchParameters = new SearchParameters (currentPos, targetPos, currentMap);
+		PathFinder path = new PathFinder (searchParameters);
+		List<Vector3> findedPath = path.FindPath ();
+
+		if (findedPath.Count > 1) 
+			return findedPath [0] - currentPos;		
+		else
+			return currentPos;
+	}
+
+
+
 
 	/// <summary>
 	/// Add all enemies to the default level map

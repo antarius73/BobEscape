@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012516610804}
   - 212: {fileID: 212000012335570766}
-  - 114: {fileID: 114000012359008562}
   - 61: {fileID: 61000012640694630}
+  - 114: {fileID: 114000012359008562}
   m_Layer: 0
   m_Name: Selectable tile red
   m_TagString: Untagged
