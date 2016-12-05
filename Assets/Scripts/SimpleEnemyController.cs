@@ -95,6 +95,7 @@ public class SimpleEnemyController : MovingCharactereController
 	}
 
 	public void destroyMe(){
+		this.Animator.SetBool ("IsDying", true);
 		Messenger.RemoveListener (GameEvent.ENEMY_MOVE_PREDICTION_START, OnEnemyMovePredictionStart);
 		Messenger.RemoveListener (GameEvent.ENEMY_MOVE_START, OnEnemyMoveStart);
 		Messenger<float,float,int>.RemoveListener (GameEvent.DAMAGE_ON_TILE, OnDamageOnTile);

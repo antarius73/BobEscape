@@ -12,6 +12,12 @@ public class MovingCharactereController :  MovingObject
 	/// </summary>
 	private Animator _animator;
 
+	protected Animator Animator {
+		get {
+			return this._animator;
+		}
+	}
+
 	private int _horizontal;
 	/// <summary>
 	/// Gets or sets the horizontal orientation of the charactere.
