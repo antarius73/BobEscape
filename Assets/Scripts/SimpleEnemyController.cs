@@ -32,13 +32,14 @@ public class SimpleEnemyController : MovingCharactereController
 	}
 
 	protected override void Start ()
-	{		
+	{	
+		base.Start ();	
 		this.Horizontal = -1;
 		this.Vertical = 0;
 		this.MoveEndEvent = GameEvent.ENEMY_MOVE_END;
 		this._target = GameObject.FindGameObjectWithTag ("Player");
 		this._predictionMove = this.transform.position;
-		base.Start ();
+
 	}
 
 	private void Awake ()
