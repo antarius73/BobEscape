@@ -4598,6 +4598,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4be5bf0d1e9e54a997645f1aaf3a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpellDamage: 1
+  SpellSpeed: 15
+  _spellRange: 5
+  SpellVisualEffect: {fileID: 1000010007958608, guid: 8f1554de1752e23449e1fe59cef8238c,
+    type: 2}
+  SpellExplosionEffect: {fileID: 100010, guid: 93f2c95ad8a9048aba5958f95784f8f5, type: 2}
 --- !u!4 &1901201380
 Transform:
   m_ObjectHideFlags: 0

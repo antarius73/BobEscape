@@ -5,7 +5,7 @@ using System;
 /// <summary>
 /// Manage movement and animation of a Simple enemy who hot at contact.
 /// </summary>
-public class SimpleEnemyController : MovingCharactereController
+public class SimpleEnemyController : MovingCharactere
 {
 	private int _life;
 	public int Life {
@@ -31,8 +31,6 @@ public class SimpleEnemyController : MovingCharactereController
 		}
 	}
 
-
-
 	protected override void Start ()
 	{	
 		base.Start ();	
@@ -41,16 +39,13 @@ public class SimpleEnemyController : MovingCharactereController
 		this.MoveEndEvent = GameEvent.ENEMY_MOVE_END;
 		this._target = GameObject.FindGameObjectWithTag ("Player");
 		this._predictionMove = this.transform.position;
-
 	}
 
 	private void Awake ()
 	{
 		Messenger.AddListener (GameEvent.ENEMY_MOVE_PREDICTION_START, OnEnemyMovePredictionStart);
 		Messenger.AddListener (GameEvent.ENEMY_MOVE_START, OnEnemyMoveStart);
-		Messenger<float,float,int>.AddListener (GameEvent.DAMAGE_ON_TILE, OnDamageOnTile);
-
-	
+		Messenger<float,float,int>.AddListener (GameEvent.DAMAGE_ON_TILE, OnDamageOnTile);	
 	}
 
 	private void OnEnemyMoveStart ()
@@ -77,7 +72,6 @@ public class SimpleEnemyController : MovingCharactereController
 	{
 		this._predictionMove = Managers.Mission.GetNextMoveTo (this.transform.position, this._target.transform.position);
 		Messenger.Broadcast (GameEvent.ENEMY_MOVE_PREDICTION_END);
-
 	}
 
 	/// <summary>
@@ -95,16 +89,12 @@ public class SimpleEnemyController : MovingCharactereController
 	public void TakeDamage(int damageAmount){
 		this._life -= damageAmount;
 		if (this.Life <= 0) {
-//			Debug.Log ("TakeDamage to death");
 			this.DestroyMe ();
 		}
 	}
 
 	public void DestroyMe(){
-	//	Debug.Log ("trigger is dying");
-	//	Debug.Log ("is dying state befor"+this.Animator.GetBool("IsDying"));
 		this.Animator.SetBool ("IsDying", true);
-	//	Debug.Log ("is dying state after"+this.Animator.GetBool("IsDying"));
 		Messenger.RemoveListener (GameEvent.ENEMY_MOVE_PREDICTION_START, OnEnemyMovePredictionStart);
 		Messenger.RemoveListener (GameEvent.ENEMY_MOVE_START, OnEnemyMoveStart);
 		Messenger<float,float,int>.RemoveListener (GameEvent.DAMAGE_ON_TILE, OnDamageOnTile);

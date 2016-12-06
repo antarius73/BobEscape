@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FireBall : MovingObject {
-
-
-	public const int SpellDamage = 1;
-	public const float SpellSpeed = 15f;
-
+public class MovingSpell : MovingObject
+{
 	private Vector3 _target;
+
 	public Vector3 Target {
 		get {
 			return this._target;
@@ -17,29 +14,22 @@ public class FireBall : MovingObject {
 		}
 	}
 
- 
-
 	protected override void Start ()
 	{
 		base.Start ();
-		this.Movetime = FireBall.SpellSpeed;
+		this.Movetime = Managers.Player.SpellSpeed;
 		this.MoveEndEvent = GameEvent.PLAYER_ATTACK_START;
 		this.MoveToTarget ();
-
 	}
 
-
-
-	private void MoveToTarget(){
-
-
+	private void MoveToTarget ()
+	{		
 		Vector3 MovementVector = this.Target - this.transform.position;
-
-
 		this.Move ((int)MovementVector.x, (int)MovementVector.y);
 	}
 
 	private string _moveEndEvent;
+
 	/// <summary>
 	/// Gets or sets the move end event to trigger when movement is ending.
 	/// </summary>
@@ -68,7 +58,4 @@ public class FireBall : MovingObject {
 			base.isMoving = value;
 		}
 	}
-
-
-
 }

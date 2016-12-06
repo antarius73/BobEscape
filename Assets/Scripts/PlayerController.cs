@@ -5,7 +5,7 @@ using System;
 /// <summary>
 /// Manage movement and animation of the player Charactere
 /// </summary>
-public class PlayerController :  MovingCharactereController
+public class PlayerController :  MovingCharactere
 {
 
 	protected override void Start ()

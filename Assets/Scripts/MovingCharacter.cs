@@ -5,7 +5,7 @@ using System;
 /// <summary>
 /// Manage movement and animation of a MovingObject controlled by Mouse or simple touch
 /// </summary>
-public class MovingCharactereController :  MovingObject
+public class MovingCharactere :  MovingObject
 {
 	/// <summary>
 	/// The prefab animator.
