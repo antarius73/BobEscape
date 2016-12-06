@@ -31,6 +31,8 @@ public class SimpleEnemyController : MovingCharactereController
 		}
 	}
 
+
+
 	protected override void Start ()
 	{	
 		base.Start ();	
@@ -47,6 +49,8 @@ public class SimpleEnemyController : MovingCharactereController
 		Messenger.AddListener (GameEvent.ENEMY_MOVE_PREDICTION_START, OnEnemyMovePredictionStart);
 		Messenger.AddListener (GameEvent.ENEMY_MOVE_START, OnEnemyMoveStart);
 		Messenger<float,float,int>.AddListener (GameEvent.DAMAGE_ON_TILE, OnDamageOnTile);
+
+	
 	}
 
 	private void OnEnemyMoveStart ()
