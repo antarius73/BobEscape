@@ -85,11 +85,11 @@ public class MovingCharactere :  MovingObject
 	/// </summary>
 	/// <param name="xDest">X destination.</param>
 	/// <param name="yDest">Y destination.</param>
-	protected void TriggerMovement (float xDest, float yDest)
+	protected bool TriggerMovement (float xDest, float yDest)
 	{
 		this._horizontal = Convert.ToInt32 (xDest - this.transform.position.x);
 		this._vertical = Convert.ToInt32 (yDest - this.transform.position.y);
-		this.Move (this._horizontal, this._vertical);	
+		return this.Move (this._horizontal, this._vertical);	
 	}
 		
 	void Update ()

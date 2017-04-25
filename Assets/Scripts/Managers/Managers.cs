@@ -18,7 +18,9 @@ public class Managers : MonoBehaviour
 
 	public static MissionManager Mission{ get; private set; }
 
-	private IList<IGameManager> _startSequence;
+    public static UIManager GameUI { get; private set; }
+
+    private IList<IGameManager> _startSequence;
 
 	/// <summary>
 	/// Call when the class is loaded.
@@ -32,14 +34,16 @@ public class Managers : MonoBehaviour
 		Managers.Player = this.GetComponent<PlayerManager> ();
 		Managers.Turn = this.GetComponent<TurnManager> ();
 		Managers.Mission = this.GetComponent<MissionManager> ();
+        Managers.GameUI = this.GetComponent<UIManager>();
 
-		this._startSequence = new List<IGameManager> ();
+        this._startSequence = new List<IGameManager> ();
 		this._startSequence.Add (Managers.Player);
 		this._startSequence.Add (Managers.Turn);
 		this._startSequence.Add (Managers.Mission);
+        this._startSequence.Add(Managers.GameUI);
 
-		// call a subroutine
-		this.StartCoroutine (this.StartupManagers ());
+        // call a subroutine
+        this.StartCoroutine (this.StartupManagers ());
 	}
 
 	/// <summary>

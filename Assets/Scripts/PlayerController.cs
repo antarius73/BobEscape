@@ -23,8 +23,8 @@ public class PlayerController :  MovingCharactere
 	}
 
 	private void onPlayerDestinationSelected (float xDest, float yDest)
-	{		
-		this.TriggerMovement (xDest, yDest);
+	{
+        this.TriggerMovement(xDest, yDest);    
 	}
 
 	private  void OnPlayerTargetSelected(float xDest, float yDest){

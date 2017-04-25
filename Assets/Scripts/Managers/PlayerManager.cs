@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System;
 
 /// <summary>
 /// Manage player datas and actions througth the all game.
@@ -14,7 +14,16 @@ public class PlayerManager : MonoBehaviour, IGameManager
 		}
 	}
 
-	private int _spellDamage = 1;
+    private int _movementEnergyCost = 1;
+    public int MovementEnergyCost
+    {
+        get
+        {
+            return _movementEnergyCost;
+        }
+    }
+
+    private int _spellDamage = 1;
 	public int SpellDamage {
 		get {
 			return this._spellDamage;
@@ -35,7 +44,41 @@ public class PlayerManager : MonoBehaviour, IGameManager
 		}
 	}
 
-	public GameObject SpellVisualEffect;
+    private int _spellEnergyCost = 5;
+    public int SpellEnergyCost
+    {
+        get
+        {
+            return _spellEnergyCost;
+        }
+    }
+
+    private int _currentEnergy = 100;
+    public int CurrentEnergy
+    {
+        get
+        {
+            return _currentEnergy;
+        }
+
+        set
+        {
+            _currentEnergy = value;
+        }
+    }
+
+    private int _maximumEnergy = 100;
+    public int MaximumEnergy
+    {
+        get
+        {
+            return _maximumEnergy;
+        }
+    }
+
+
+
+    public GameObject SpellVisualEffect;
 
 	public GameObject SpellExplosionEffect;
 
@@ -44,8 +87,37 @@ public class PlayerManager : MonoBehaviour, IGameManager
 		private set;
 	}
 
-	public void Startup ()
+   
+
+    public void Startup ()
 	{
 		this.Status = ManagerStatus.Started;
 	}
+
+    private void Awake()
+    {
+        Messenger.AddListener(GameEvent.PLAYER_MOVE_END, OnPlayerMoveEnd);
+        Messenger.AddListener(GameEvent.PLAYER_ATTACK_END, OnPlayerAttackEnd);
+    }
+
+    private void OnPlayerAttackEnd()
+    {
+        this.RemoveSpellEnergyCost();
+        Managers.GameUI.RefreshUI();
+    }
+
+    private void OnPlayerMoveEnd()
+    {
+        this.RemoveMovementEnergyCost();
+        Managers.GameUI.RefreshUI();
+    }
+
+    private void RemoveMovementEnergyCost() {
+        this.CurrentEnergy -= this.MovementEnergyCost;
+    }
+
+    private void RemoveSpellEnergyCost()
+    {
+        this.CurrentEnergy -= this.SpellEnergyCost;
+    }
 }
