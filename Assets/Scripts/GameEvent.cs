@@ -12,8 +12,10 @@ public class GameEvent
 	public const string PLAYER_ATTACK_END = "PLAYER_ATTACK_END";
 	public const string PLAYER_MOVE_END = "PLAYER_MOVE_END";
 	public const string PLAYER_TURN_END = "PLAYER_TURN_END";
+    public const string PLAYER_DEATH_START = "PLAYER_DEATH_START";
+    public const string PLAYER_DEATH_END = "PLAYER_DEATH_END";
 
-	public const string ENEMY_TURN_START = "ENEMY_TURN_START";
+    public const string ENEMY_TURN_START = "ENEMY_TURN_START";
 	public const string ENEMY_MOVE_PREDICTION_START = "ENEMY_MOVE_PREDICTION_START";
 	public const string ENEMY_MOVE_PREDICTION_END = "ENEMY_MOVE_PREDICTION_END";
 	public const string ENEMY_MOVE_START = "ENEMY_MOVE_START";
@@ -52,4 +54,6 @@ public enum enmGameEvents
 	WORLD_ITEM_TURN_END = 18,
 	WORLD_TURN_END = 19,
 	DAMAGE_ON_TILE =20,
+    PLAYER_DEATH_START = 21,
+    PLAYER_DEATH_END = 22
 }

@@ -20,9 +20,15 @@ public class PlayerController :  MovingCharactere
 	{
 		Messenger<float,float>.AddListener (GameEvent.PLAYER_DESTINATION_SELECTED, onPlayerDestinationSelected);
 		Messenger<float,float>.AddListener(GameEvent.PLAYER_TARGET_SELECTED, OnPlayerTargetSelected);
-	}
+        Messenger.AddListener(GameEvent.PLAYER_DEATH_START, OnPlayerDeath);
+    }
 
-	private void onPlayerDestinationSelected (float xDest, float yDest)
+    private void OnPlayerDeath()
+    {
+        this.Animator.SetBool("IsDying", true);
+    }
+
+    private void onPlayerDestinationSelected (float xDest, float yDest)
 	{
         this.TriggerMovement(xDest, yDest);    
 	}
@@ -44,6 +50,12 @@ public class PlayerController :  MovingCharactere
 	private void OnPlayerAttackEnd(){
 		this.Animator.SetBool ("IsAttacking", false);
 	}
+
+    public void PlayerDied()
+    {
+        // voir ici pour switch de scene et arret des machine
+
+    }
 
 
 }

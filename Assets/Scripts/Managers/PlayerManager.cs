@@ -53,7 +53,7 @@ public class PlayerManager : MonoBehaviour, IGameManager
         }
     }
 
-    private int _currentEnergy = 100;
+    private int _currentEnergy = 5;
     public int CurrentEnergy
     {
         get
@@ -64,6 +64,9 @@ public class PlayerManager : MonoBehaviour, IGameManager
         set
         {
             _currentEnergy = value;
+           
+            CheckEnergyModification();
+
         }
     }
 
@@ -120,4 +123,11 @@ public class PlayerManager : MonoBehaviour, IGameManager
     {
         this.CurrentEnergy -= this.SpellEnergyCost;
     }
+
+
+    private void CheckEnergyModification()
+    {
+        if (this.CurrentEnergy > this.MaximumEnergy) this._currentEnergy = this.MaximumEnergy;
+        else if (this.CurrentEnergy <= 0) Messenger.Broadcast(GameEvent.PLAYER_DEATH_START);
+    }    
 }
