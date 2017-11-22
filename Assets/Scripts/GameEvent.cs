@@ -24,10 +24,11 @@ public class GameEvent
 
 	public const string WORLD_TURN_START = "WORLD_TURN_START";
 	public const string WORLD_ITEM_TURN_START = "WORLD_ITEM_TURN_START";
-	public const string WORLD_ITEM_TURN_END = "WORLD_ITEM_TURN_END";
+    public const string WORLD_ITEM_TURN_END = "WORLD_ITEM_TURN_END";
 	public const string WORLD_TURN_END = "WORLD_TURN_END";
 
 	public const string DAMAGE_ON_TILE = "DAMAGE_ON_TILE";
+    public const string PLAYER_ENERGY_CHANGE = "PLAYER_ENERGY_CHANGE";
 
 
 }

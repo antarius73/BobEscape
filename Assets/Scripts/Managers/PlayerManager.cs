@@ -53,7 +53,7 @@ public class PlayerManager : MonoBehaviour, IGameManager
         }
     }
 
-    private int _currentEnergy = 5;
+    private int _currentEnergy = 50;
     public int CurrentEnergy
     {
         get
@@ -101,6 +101,14 @@ public class PlayerManager : MonoBehaviour, IGameManager
     {
         Messenger.AddListener(GameEvent.PLAYER_MOVE_END, OnPlayerMoveEnd);
         Messenger.AddListener(GameEvent.PLAYER_ATTACK_END, OnPlayerAttackEnd);
+        Messenger<int>.AddListener(GameEvent.PLAYER_ENERGY_CHANGE, onPlayerEnergyChange);
+    }
+
+    private void onPlayerEnergyChange(int energyAmount)
+    {
+        Debug.Log("up energy");
+        this.CurrentEnergy += energyAmount;
+        Managers.GameUI.RefreshUI();
     }
 
     private void OnPlayerAttackEnd()
